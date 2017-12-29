@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GalleryStore", "GalleryStore\GalleryStore.csproj", "{A2F45117-AD3F-49AA-BBAA-C294C291908C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2F45117-AD3F-49AA-BBAA-C294C291908C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2F45117-AD3F-49AA-BBAA-C294C291908C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2F45117-AD3F-49AA-BBAA-C294C291908C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2F45117-AD3F-49AA-BBAA-C294C291908C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {09E3CA7C-33CA-4182-90F6-C1AF5E2D6D89}
+	EndGlobalSection
+EndGlobal

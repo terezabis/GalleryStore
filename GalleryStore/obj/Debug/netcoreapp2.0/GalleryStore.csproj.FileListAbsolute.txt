@@ -1,0 +1,22 @@
+C:\Users\Teri\Documents\Softuni\C# MVC Framework\GalleryStore\GalleryStore\bin\Debug\netcoreapp2.0\GalleryStore.deps.json
+C:\Users\Teri\Documents\Softuni\C# MVC Framework\GalleryStore\GalleryStore\bin\Debug\netcoreapp2.0\GalleryStore.runtimeconfig.json
+C:\Users\Teri\Documents\Softuni\C# MVC Framework\GalleryStore\GalleryStore\bin\Debug\netcoreapp2.0\GalleryStore.runtimeconfig.dev.json
+C:\Users\Teri\Documents\Softuni\C# MVC Framework\GalleryStore\GalleryStore\bin\Debug\netcoreapp2.0\GalleryStore.dll
+C:\Users\Teri\Documents\Softuni\C# MVC Framework\GalleryStore\GalleryStore\bin\Debug\netcoreapp2.0\GalleryStore.pdb
+C:\Users\Teri\Documents\Softuni\C# MVC Framework\GalleryStore\GalleryStore\obj\Debug\netcoreapp2.0\GalleryStore.csprojResolveAssemblyReference.cache
+C:\Users\Teri\Documents\Softuni\C# MVC Framework\GalleryStore\GalleryStore\obj\Debug\netcoreapp2.0\GalleryStore.csproj.CoreCompileInputs.cache
+C:\Users\Teri\Documents\Softuni\C# MVC Framework\GalleryStore\GalleryStore\obj\Debug\netcoreapp2.0\GalleryStore.AssemblyInfoInputs.cache
+C:\Users\Teri\Documents\Softuni\C# MVC Framework\GalleryStore\GalleryStore\obj\Debug\netcoreapp2.0\GalleryStore.AssemblyInfo.cs
+C:\Users\Teri\Documents\Softuni\C# MVC Framework\GalleryStore\GalleryStore\obj\Debug\netcoreapp2.0\GalleryStore.dll
+C:\Users\Teri\Documents\Softuni\C# MVC Framework\GalleryStore\GalleryStore\obj\Debug\netcoreapp2.0\GalleryStore.pdb
+C:\Users\svetlomir.miloslavov\Desktop\GalleryStore\GalleryStore\bin\Debug\netcoreapp2.0\GalleryStore.deps.json
+C:\Users\svetlomir.miloslavov\Desktop\GalleryStore\GalleryStore\bin\Debug\netcoreapp2.0\GalleryStore.runtimeconfig.json
+C:\Users\svetlomir.miloslavov\Desktop\GalleryStore\GalleryStore\bin\Debug\netcoreapp2.0\GalleryStore.runtimeconfig.dev.json
+C:\Users\svetlomir.miloslavov\Desktop\GalleryStore\GalleryStore\bin\Debug\netcoreapp2.0\GalleryStore.dll
+C:\Users\svetlomir.miloslavov\Desktop\GalleryStore\GalleryStore\bin\Debug\netcoreapp2.0\GalleryStore.pdb
+C:\Users\svetlomir.miloslavov\Desktop\GalleryStore\GalleryStore\obj\Debug\netcoreapp2.0\GalleryStore.csprojResolveAssemblyReference.cache
+C:\Users\svetlomir.miloslavov\Desktop\GalleryStore\GalleryStore\obj\Debug\netcoreapp2.0\GalleryStore.csproj.CoreCompileInputs.cache
+C:\Users\svetlomir.miloslavov\Desktop\GalleryStore\GalleryStore\obj\Debug\netcoreapp2.0\GalleryStore.AssemblyInfoInputs.cache
+C:\Users\svetlomir.miloslavov\Desktop\GalleryStore\GalleryStore\obj\Debug\netcoreapp2.0\GalleryStore.AssemblyInfo.cs
+C:\Users\svetlomir.miloslavov\Desktop\GalleryStore\GalleryStore\obj\Debug\netcoreapp2.0\GalleryStore.dll
+C:\Users\svetlomir.miloslavov\Desktop\GalleryStore\GalleryStore\obj\Debug\netcoreapp2.0\GalleryStore.pdb
