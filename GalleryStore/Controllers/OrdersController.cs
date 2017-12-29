@@ -1,30 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using GalleryStore.Data;
 using Microsoft.Extensions.Logging;
 using GalleryStore.Data.Entities;
 using GalleryStore.ViewModels;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
 
 namespace GalleryStore.Controllers
 {
     [Route("api/[Controller]")]
+    [Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme)]
     public class OrdersController : Controller
     {
         private readonly IGalleryStoreRepository _repository;
         private readonly ILogger<OrdersController> _logger;
         private readonly IMapper _mapper;
+        private readonly UserManager<StoreUser> _userManager;
 
         public OrdersController(IGalleryStoreRepository repository, ILogger<OrdersController> logger,
-            IMapper mapper)
+            IMapper mapper,
+            UserManager<StoreUser> userManager)
         {
             _repository = repository;
             _logger = logger;
             _mapper = mapper;
+            _userManager = userManager;
         }
 
         [HttpGet]
@@ -32,7 +37,9 @@ namespace GalleryStore.Controllers
         {
             try
             {
-                var results = _repository.GetAllOrders(includeItems);
+                var username = User.Identity.Name;
+
+                var results = _repository.GetAllOrdersByUser(username, includeItems);
                 return Ok(_mapper.Map<IEnumerable<Order>, IEnumerable<OrderViewModel>>(results));
             }
             catch (Exception ex)
@@ -47,7 +54,7 @@ namespace GalleryStore.Controllers
         {
             try
             {
-                var order = _repository.GetOrderById(id);
+                var order = _repository.GetOrderById(User.Identity.Name, id);
 
                 if (order != null) return Ok(_mapper.Map<Order, OrderViewModel>(order));
                 else return NotFound();
@@ -60,7 +67,7 @@ namespace GalleryStore.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody]OrderViewModel model)
+        public async Task<IActionResult> Post([FromBody]OrderViewModel model)
         {
             try
             {
@@ -72,6 +79,9 @@ namespace GalleryStore.Controllers
                     {
                         newOrder.OrderDate = DateTime.Now;
                     }
+
+                    var currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
+                    newOrder.User = currentUser;
 
                     _repository.AddEntity(newOrder);
                     if (_repository.SaveAll())

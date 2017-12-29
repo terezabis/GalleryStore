@@ -14,16 +14,21 @@ using Newtonsoft.Json;
 using AutoMapper;
 using GalleryStore.Data.Entities;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace GalleryStore
 {
     public class Startup
     {
         private readonly IConfiguration _config;
+        private readonly IHostingEnvironment _env;
 
-        public Startup(IConfiguration config)
+        public Startup(IConfiguration config, IHostingEnvironment env)
         {
             _config = config;
+            _env = env;
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -34,6 +39,18 @@ namespace GalleryStore
             })
             .AddEntityFrameworkStores<GalleryStoreContext>();
 
+            services.AddAuthentication()
+                .AddCookie()
+                .AddJwtBearer(cfg =>
+                {
+                    cfg.TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        ValidIssuer = _config["Tokens:Issuer"],
+                        ValidAudience = _config["Tokens:Audience"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]))
+                    };
+                });
+
             services.AddDbContext<GalleryStoreContext>(cfg =>
             {
                 cfg.UseSqlServer(_config.GetConnectionString("GalleryStoreConnectionString"));
@@ -43,7 +60,13 @@ namespace GalleryStore
             services.AddTransient<IMailService, NullMailService>();
             services.AddTransient<GalleryStoreSeeder>();
             services.AddScoped<IGalleryStoreRepository, GalleryStoreRepository>();
-            services.AddMvc()
+            services.AddMvc(opt =>
+            {
+                if (_env.IsProduction())
+                {
+                    opt.Filters.Add(new RequireHttpsAttribute());
+                }
+            })
                 .AddJsonOptions(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
         }
 

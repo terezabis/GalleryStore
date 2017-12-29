@@ -1,11 +1,16 @@
 ﻿{
   "ConnectionStrings": {
-    "GalleryStoreConnectionString": "server=(localdb)\\ProjectsV13;Database=GalleryStoreDb;Integrated Security=true;MultipleActiveResultSets=true;"
+    "GalleryStoreConnectionString": "server=(localdb)\\MSSQLLocalDB;Database=GalleryStoreDb;Integrated Security=true;MultipleActiveResultSets=true;"
   },
   "Logging": {
     "LogLevel": {
       "Default": "Information",
-      "Microsoft":  "Warning"
+      "Microsoft": "Warning"
     }
+  },
+  "Tokens": {
+    "Key": "adfdfdghhhgggiuguigui",
+    "Issuer": "localhost",
+    "Audience": "localhost"
   }
 }

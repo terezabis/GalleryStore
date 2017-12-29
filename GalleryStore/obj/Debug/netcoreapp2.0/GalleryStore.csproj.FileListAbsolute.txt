@@ -20,3 +20,14 @@ C:\Users\svetlomir.miloslavov\Desktop\GalleryStore\GalleryStore\obj\Debug\netcor
 C:\Users\svetlomir.miloslavov\Desktop\GalleryStore\GalleryStore\obj\Debug\netcoreapp2.0\GalleryStore.AssemblyInfo.cs
 C:\Users\svetlomir.miloslavov\Desktop\GalleryStore\GalleryStore\obj\Debug\netcoreapp2.0\GalleryStore.dll
 C:\Users\svetlomir.miloslavov\Desktop\GalleryStore\GalleryStore\obj\Debug\netcoreapp2.0\GalleryStore.pdb
+C:\Users\tbise\source\repos\GalleryStore\GalleryStore\bin\Debug\netcoreapp2.0\GalleryStore.deps.json
+C:\Users\tbise\source\repos\GalleryStore\GalleryStore\bin\Debug\netcoreapp2.0\GalleryStore.runtimeconfig.json
+C:\Users\tbise\source\repos\GalleryStore\GalleryStore\bin\Debug\netcoreapp2.0\GalleryStore.runtimeconfig.dev.json
+C:\Users\tbise\source\repos\GalleryStore\GalleryStore\bin\Debug\netcoreapp2.0\GalleryStore.dll
+C:\Users\tbise\source\repos\GalleryStore\GalleryStore\bin\Debug\netcoreapp2.0\GalleryStore.pdb
+C:\Users\tbise\source\repos\GalleryStore\GalleryStore\obj\Debug\netcoreapp2.0\GalleryStore.csprojResolveAssemblyReference.cache
+C:\Users\tbise\source\repos\GalleryStore\GalleryStore\obj\Debug\netcoreapp2.0\GalleryStore.csproj.CoreCompileInputs.cache
+C:\Users\tbise\source\repos\GalleryStore\GalleryStore\obj\Debug\netcoreapp2.0\GalleryStore.AssemblyInfoInputs.cache
+C:\Users\tbise\source\repos\GalleryStore\GalleryStore\obj\Debug\netcoreapp2.0\GalleryStore.AssemblyInfo.cs
+C:\Users\tbise\source\repos\GalleryStore\GalleryStore\obj\Debug\netcoreapp2.0\GalleryStore.dll
+C:\Users\tbise\source\repos\GalleryStore\GalleryStore\obj\Debug\netcoreapp2.0\GalleryStore.pdb
