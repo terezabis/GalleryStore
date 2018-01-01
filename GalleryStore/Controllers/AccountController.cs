@@ -73,6 +73,68 @@ namespace GalleryStore.Controllers
             return RedirectToAction("Index", "App");
         }
 
+        public IActionResult Register()
+        {
+            if (this.User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "App");
+            }
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
+        {
+            ViewData["ReturnUrl"] = returnUrl;
+            
+            if (ModelState.IsValid)
+            {
+                
+                var user = new StoreUser {
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    UserName = model.Username,
+                    Email = model.Email
+                };
+                var usermail = await _userManager.FindByEmailAsync(model.Email);
+
+                if (usermail == null)
+                {
+                    IdentityResult result = await _userManager.CreateAsync(user, model.Password);
+
+                    if (result.Succeeded)
+                    {
+                        await _userManager.AddToRoleAsync(user, "Customer");
+
+                        _logger.LogInformation("User created a new account with password.");
+                        if (Request.Query.Keys.Contains("ReturnUrl"))
+                        {
+                            Redirect(Request.Query["ReturnUrl"].First());
+                        }
+                        else
+                        {
+                            RedirectToAction("Shop", "App");
+                        }
+                    }
+                    else
+                    {
+                        foreach (IdentityError ie in result.Errors)
+                            ModelState.AddModelError("", ie.Description);
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "This Email is already registered.");
+                }
+            }
+
+            ModelState.AddModelError("", "Failed to register.");
+            
+            return View();
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateToken([FromBody] LoginViewModel model)
         {

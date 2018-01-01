@@ -11,21 +11,25 @@
 <body>
     <header>
         <div class="navbar-brand"><h3>Gallery Store</h3></div>
+        @if (User.Identity.IsAuthenticated)
+        {
+        <div><h3>Hello, @User</h3></div>
+        }
         <div class="topnav" id="myTopnav">
             <nav>
                 <a asp-controller="App" asp-action="Index">Home</a>
                 <a asp-controller="App" asp-action="Contact">Contact</a>
                 <a asp-controller="App" asp-action="About">About</a>
-                <a asp-controller="App" asp-action="Shop">Shop</a>
                 @if (User.Identity.IsAuthenticated)
-                {
+            {
+                <a asp-controller="App" asp-action="Shop">Shop</a>
                 <a asp-controller="Account" asp-action="Logout">Logout</a>
-                }
-                else
-                {
-                    <a asp-controller="Account" asp-action="Login">Login</a>
-
-                }
+        }
+        else
+        {
+            <a asp-controller="Account" asp-action="Login">Login</a>
+            <a asp-controller="Account" asp-action="Register">Register</a>
+    }
             </nav>
         </div>
     </header>
