@@ -1,0 +1,41 @@
+﻿
+@{
+    var order = ViewBag.Order;
+}
+
+@section scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+
+<div class="col">
+    <div class="col-xs-12">
+
+        <h3 align="center">Order number: @order.OrderNumber</h3>
+        <h4 align="center">Order date: @order.OrderDate</h4>
+        <table>
+            <tr>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th></th>
+            </tr>
+
+            @foreach (var i in order.Items)
+            {
+                <tr>
+                    <td>@i.Product.Title</td>
+                    <td>@i.Quantity</td>
+                    <td>@((i.Quantity * i.UnitPrice).ToString())$</td>
+                    <td> <button type="button" onclick="@("window.location.href='" + @Url.Action("Product", "App", new {productId = i.Product.Id }) + "'");">Product details</button></td>
+                </tr>
+            }
+        </table>
+
+    </div>
+</div>
+
+
+
+
+

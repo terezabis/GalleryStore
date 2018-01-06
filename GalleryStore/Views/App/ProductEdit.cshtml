@@ -1,0 +1,61 @@
+﻿@model ProductViewModel
+
+@{
+    var chek = ViewBag.text;
+}
+
+@section scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+<h3>@chek</h3>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly"></div>
+            <input asp-for="ProductId" type="hidden" value="@Model.ProductId" />
+            <input asp-for="Artist" type="hidden" value="@Model.Artist" />
+            <input asp-for="ArtId" type="hidden" value="@Model.ArtId" />
+            <input asp-for="ArtistBirthDate" type="hidden" value="@Model.ArtistBirthDate" />
+            <input asp-for="ArtistDeathDate" type="hidden" value="@Model.ArtistDeathDate" />
+            <input asp-for="ArtistNationality" type="hidden" value="@Model.ArtistNationality" />
+            <div class="form-group">
+                <label asp-for="Category">Category:</label>
+                <input asp-for="Category" class="form-control" value="@Model.Category" />
+                <span asp-validation-for="Category" class="text-warning"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Size">Size:</label>
+                <input asp-for="Size" class="form-control" value="@Model.Size" />
+                <span asp-validation-for="Size" class="text-warning"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price">Price:</label>
+                <input asp-for="Price" class="form-control" value="@Model.Price" />
+                <span asp-validation-for="Price" class="text-warning"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title">Title:</label>
+                <input asp-for="Title" class="form-control" value="@Model.Title" />
+                <span asp-validation-for="Title" class="text-warning"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArtDescription">Art Description:</label>
+                <input asp-for="ArtDescription" class="form-control" value="@Model.ArtDescription" />
+                <span asp-validation-for="ArtDescription" class="text-warning"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArtDating">Art Dating:</label>
+                <input asp-for="ArtDating" class="form-control" value="@Model.ArtDating" />
+                <span asp-validation-for="ArtDating" class="text-warning"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+

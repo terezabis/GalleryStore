@@ -41,6 +41,8 @@ header {
             color: white;
         }
 
+
+
 body {
     font-family: 'Open Sans', sans-serif;
     color: #333333;
@@ -53,6 +55,9 @@ main > section {
     padding: 20px 5px;
 }
 
+#main{
+    padding: 50px;
+}
 
 .title {
     text-align: center;
@@ -147,16 +152,11 @@ table {
         background: #EEE;
     }
 
-.secondaryButton {
-    text-decoration: none;
-    color: #333333;
-    padding: 5px 10px;
-    transition: all .2s ease-in-out;
-}
 
-    .secondaryButton:hover {
-        cursor: pointer;
-    }
+.shop-image {
+    max-width: 215px;
+    max-height: 300px;
+}
 
 footer {
     background: #333333;
@@ -164,7 +164,7 @@ footer {
     padding: 15px 10px;
     font-size: 0.8em;
     text-align: center;
-    position: static;
+    /*position:absolute;*/
     bottom: 0;
     left: 0;
     width: 100%;

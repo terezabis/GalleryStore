@@ -18,6 +18,10 @@ namespace GalleryStore.Data
 
             CreateMap<OrderItem, OrderItemViewModel>()
                 .ReverseMap();
+
+            CreateMap<Product, ProductViewModel>()
+                .ForMember(p => p.ProductId, ex => ex.MapFrom(p => p.Id))
+                .ReverseMap();
         }
     }
 }

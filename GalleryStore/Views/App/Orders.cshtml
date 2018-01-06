@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Order>
+@{
+    ViewBag.Title = "All orders: " + @Model.Count();
+}
+
+@section scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+
+
+<div class="col">
+    @foreach (var o in Model)
+    {
+        <div class="col-md-3">
+            <div class="well well-sm">
+                <p><b>Order number: </b>@o.OrderNumber</p>
+                <p><b>Order date: </b>@o.OrderDate</p>
+                @if (User.IsInRole("Admin"))
+                {
+                    <p><b>User: </b>@o.User.FirstName @o.User.LastName - @o.User.UserName</p>
+
+                }
+                <button class="btn btn-primary" type="button" onclick="@("window.location.href='" + @Url.Action("Order", "App", new {orderId = o.Id}) + "'");">Details</button>
+            </div>
+        </div>
+
+    }
+</div>
+
+
+

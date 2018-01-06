@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalleryStore.Data.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace GalleryStore.ViewModels
         [Required]
         [MinLength(4)]
         public string OrderNumber { get; set; }
+        public StoreUser User { get; set; }
 
         public ICollection<OrderItemViewModel> Items { get; set; }
     }

@@ -24,6 +24,11 @@ namespace GalleryStore.Data
             _ctx.Add(model);
         }
 
+        public void UpdateEntity(object model)
+        {
+            _ctx.Update(model);
+        }
+
         public IEnumerable<Order> GetAllOrders(bool includeItems)
         {
             if (includeItems)
@@ -31,12 +36,14 @@ namespace GalleryStore.Data
                 return _ctx.Orders
                     .Include(o => o.Items)
                     .ThenInclude(i => i.Product)
+                    .Include(u => u.User)
                     .ToList();
             }
             else
             {
                 return _ctx.Orders
-                .ToList();
+                    .Include(u => u.User)
+                    .ToList();
             }
         }
 
@@ -48,13 +55,15 @@ namespace GalleryStore.Data
                     .Where(o => o.User.UserName == username)
                     .Include(o => o.Items)
                     .ThenInclude(i => i.Product)
+                    .Include(u => u.User)
                     .ToList();
             }
             else
             {
                 return _ctx.Orders
                     .Where(o => o.User.UserName == username)
-                .ToList();
+                    .Include(u => u.User)
+                    .ToList();
             }
         }
 
@@ -65,7 +74,7 @@ namespace GalleryStore.Data
                 _logger.LogInformation("GetAllProducts was called");
 
                 return _ctx.Products
-                    .OrderBy(p => p.Title)
+                    .OrderBy(p => p.Size)
                     .ToList();
             }
             catch (Exception ex)
@@ -83,13 +92,37 @@ namespace GalleryStore.Data
                 .Where(o => o.Id == id && o.User.UserName == username)
                 .FirstOrDefault();
         }
-    
+
+        public Order GetOrder(int id)
+        {
+            return _ctx.Orders
+                .Include(o => o.Items)
+                .ThenInclude(i => i.Product)
+                .Where(o => o.Id == id)
+                .FirstOrDefault();
+        }
+
         public IEnumerable<Product> GetProductsByCategory(string category)
         {
             return _ctx.Products
                 .Where(p => p.Category == category)
                 .ToList();
         }
+
+        public Product GetProduct(int id)
+        {
+            return _ctx.Products
+                .Where(p => p.Id == id)
+                .FirstOrDefault();
+        }
+    
+        public IEnumerable<Product> GetProductsByArtistId(string artistId)
+        {
+            return _ctx.Products
+                .Where(a => a.ArtId == artistId)
+                .ToList();
+        }
+
 
         public bool SaveAll()
         {

@@ -1,0 +1,39 @@
+﻿@{
+    var p = ViewBag.Product;
+}
+
+@section scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+
+<div class="row">
+    <div class="col-md-4" align="center">
+        <div class="well well-sm">
+            <p><h3><b>Title: </b>@p.Title</</h3></p>
+            <img height="300" class="image-responsive" src="~/img/@(p.ArtId).jpg" alt="@p.Title" />
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div class="well well-sm">
+            <p><h3>@p.Category - @p.Size</h3></p>
+            <ul class="product-props">
+                <li><b>Price: </b>@p.Price$</li>
+                <li>
+                    <b>Artist: </b>@p.Artist (@p.ArtistBirthDate.ToString("dd/MM/yyyy")
+                    - @p.ArtistDeathDate.ToString("dd/MM/yyyy"))
+                </li>
+                <li><b>Artist's natioanality: </b>@p.ArtistNationality</li>
+                <li><b>Art dating: </b>@p.ArtDating</li>
+                <li><b>Description: </b>@p.ArtDescription</li>
+            </ul>
+
+            <button class="btn btn-primary">Buy</button>
+            @if (User.IsInRole("Admin"))
+            {
+                <button class="btn btn-info" onclick="@("window.location.href='" + @Url.Action("EditProduct", "App", new {productId = p.Id}) + "'");">Edit</button>
+            }
+        </div>
+    </div>
+</div>

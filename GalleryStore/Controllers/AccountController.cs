@@ -54,11 +54,11 @@ namespace GalleryStore.Controllers
                 {
                     if (Request.Query.Keys.Contains("ReturnUrl"))
                     {
-                        Redirect(Request.Query["ReturnUrl"].First());
+                        return Redirect(Request.Query["ReturnUrl"].First());
                     }
                     else
                     {
-                        RedirectToAction("Shop", "App");
+                        return RedirectToAction("Shop", "App");
                     }
                 }
             }
@@ -111,11 +111,11 @@ namespace GalleryStore.Controllers
                         _logger.LogInformation("User created a new account with password.");
                         if (Request.Query.Keys.Contains("ReturnUrl"))
                         {
-                            Redirect(Request.Query["ReturnUrl"].First());
+                            return Redirect(Request.Query["ReturnUrl"].First());
                         }
                         else
                         {
-                            RedirectToAction("Shop", "App");
+                            return RedirectToAction("Shop", "App");
                         }
                     }
                     else
