@@ -55,8 +55,9 @@ main > section {
     padding: 20px 5px;
 }
 
-#main{
+#main {
     padding: 50px;
+    min-height: 77vh;
 }
 
 .title {
