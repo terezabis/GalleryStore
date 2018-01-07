@@ -29,7 +29,7 @@
                 <li><b>Description: </b>@p.ArtDescription</li>
             </ul>
 
-            <button class="btn btn-primary">Buy</button>
+            <button class="btn btn-success" onclick="@("window.location.href='" + @Url.Action("Buy", "App", new {productId = p.Id}) + "'");">Buy</button>
             @if (User.IsInRole("Admin"))
             {
                 <button class="btn btn-info" onclick="@("window.location.href='" + @Url.Action("EditProduct", "App", new {productId = p.Id}) + "'");">Edit</button>

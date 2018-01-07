@@ -16,7 +16,7 @@
                     <li><b>Title: </b>@p.Title</li>
                 </ul>
                 <button class="btn btn-primary" type="button" onclick="@("window.location.href='" + @Url.Action("Product", "App", new {productId = p.Id}) + "'");">Details</button>
-                <button class="btn btn-success">Buy</button>
+                <button class="btn btn-success" onclick="@("window.location.href='" + @Url.Action("Buy", "App", new {productId = p.Id}) + "'");">Buy</button>
 
                 @if (User.IsInRole("Admin"))
                 {

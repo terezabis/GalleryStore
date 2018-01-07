@@ -1,4 +1,5 @@
-﻿using GalleryStore.Data.Entities;
+﻿using GalleryStore.Data;
+using GalleryStore.Data.Entities;
 using GalleryStore.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -20,16 +21,19 @@ namespace GalleryStore.Controllers
         private readonly ILogger<AccountController> _logger;
         private readonly SignInManager<StoreUser> _signInManager;
         private readonly UserManager<StoreUser> _userManager;
+        private readonly IGalleryStoreRepository _repository;
         private readonly IConfiguration _config;
 
         public AccountController(ILogger<AccountController> logger, 
             SignInManager<StoreUser> signInManager, 
             UserManager<StoreUser> userManager,
+            IGalleryStoreRepository repository,
             IConfiguration config)
         {
             _logger = logger;
             _signInManager = signInManager;
             _userManager = userManager;
+            _repository = repository;
             _config = config;
         }
 
@@ -109,6 +113,15 @@ namespace GalleryStore.Controllers
                         await _userManager.AddToRoleAsync(user, "Customer");
 
                         _logger.LogInformation("User created a new account with password.");
+
+                        Order currentOrder = new Order();
+                        currentOrder.OrderDate = DateTime.Now;
+                        currentOrder.OrderNumber = user.UserName + "Order_01";
+                        currentOrder.User = user;
+                        
+                        _repository.AddEntity(currentOrder);
+                        _repository.SaveAll();
+
                         if (Request.Query.Keys.Contains("ReturnUrl"))
                         {
                             return Redirect(Request.Query["ReturnUrl"].First());

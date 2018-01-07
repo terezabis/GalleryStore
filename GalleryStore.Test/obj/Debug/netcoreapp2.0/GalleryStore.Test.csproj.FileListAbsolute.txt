@@ -1,0 +1,16 @@
+C:\Users\tbise\source\repos\GalleryStore\GalleryStore.Test\bin\Debug\netcoreapp2.0\GalleryStore.Test.deps.json
+C:\Users\tbise\source\repos\GalleryStore\GalleryStore.Test\bin\Debug\netcoreapp2.0\GalleryStore.Test.dll
+C:\Users\tbise\source\repos\GalleryStore\GalleryStore.Test\bin\Debug\netcoreapp2.0\GalleryStore.dll
+C:\Users\tbise\source\repos\GalleryStore\GalleryStore.Test\bin\Debug\netcoreapp2.0\GalleryStore.pdb
+C:\Users\tbise\source\repos\GalleryStore\GalleryStore.Test\obj\Debug\netcoreapp2.0\GalleryStore.Test.csprojResolveAssemblyReference.cache
+C:\Users\tbise\source\repos\GalleryStore\GalleryStore.Test\obj\Debug\netcoreapp2.0\GalleryStore.Test.csproj.CoreCompileInputs.cache
+C:\Users\tbise\source\repos\GalleryStore\GalleryStore.Test\obj\Debug\netcoreapp2.0\GalleryStore.Test.AssemblyInfoInputs.cache
+C:\Users\tbise\source\repos\GalleryStore\GalleryStore.Test\obj\Debug\netcoreapp2.0\GalleryStore.Test.AssemblyInfo.cs
+C:\Users\tbise\source\repos\GalleryStore\GalleryStore.Test\bin\Debug\netcoreapp2.0\GalleryStore.Test.runtimeconfig.json
+C:\Users\tbise\source\repos\GalleryStore\GalleryStore.Test\bin\Debug\netcoreapp2.0\GalleryStore.Test.runtimeconfig.dev.json
+C:\Users\tbise\source\repos\GalleryStore\GalleryStore.Test\bin\Debug\netcoreapp2.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\tbise\source\repos\GalleryStore\GalleryStore.Test\bin\Debug\netcoreapp2.0\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\tbise\source\repos\GalleryStore\GalleryStore.Test\bin\Debug\netcoreapp2.0\xunit.runner.utility.netcoreapp10.dll
+C:\Users\tbise\source\repos\GalleryStore\GalleryStore.Test\bin\Debug\netcoreapp2.0\GalleryStore.Test.pdb
+C:\Users\tbise\source\repos\GalleryStore\GalleryStore.Test\obj\Debug\netcoreapp2.0\GalleryStore.Test.dll
+C:\Users\tbise\source\repos\GalleryStore\GalleryStore.Test\obj\Debug\netcoreapp2.0\GalleryStore.Test.pdb

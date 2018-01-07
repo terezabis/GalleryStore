@@ -119,7 +119,7 @@ namespace GalleryStore.Data
         public IEnumerable<Product> GetProductsByArtistId(string artistId)
         {
             return _ctx.Products
-                .Where(a => a.ArtId == artistId)
+                .Where(a => a.Artist == artistId)
                 .ToList();
         }
 

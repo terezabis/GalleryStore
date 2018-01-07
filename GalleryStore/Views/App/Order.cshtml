@@ -27,7 +27,14 @@
                     <td>@i.Product.Title</td>
                     <td>@i.Quantity</td>
                     <td>@((i.Quantity * i.UnitPrice).ToString())$</td>
-                    <td> <button type="button" onclick="@("window.location.href='" + @Url.Action("Product", "App", new {productId = i.Product.Id }) + "'");">Product details</button></td>
+                    <td>
+                        <button class="btn btn-primary" type="button" onclick="@("window.location.href='" + @Url.Action("Product", "App", new {productId = i.Product.Id }) + "'");">Product details</button>
+                        @if (!User.IsInRole("Admin"))
+                        {
+                            <button class="btn btn-danger" type="button" onclick="@("window.location.href='" + @Url.Action("DeleteProduct", "App", new {productId = i.Product.Id }) + "'");">Delete</button>
+                        }
+
+                    </td>
                 </tr>
             }
         </table>

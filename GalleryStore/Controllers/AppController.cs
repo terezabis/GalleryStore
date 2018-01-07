@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using GalleryStore.Data.Entities;
 using AutoMapper;
 using System;
+using System.Linq;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -68,6 +69,7 @@ namespace GalleryStore.Controllers
             return View(results);
         }
 
+        [Authorize]
         public IActionResult Product(int productId)
         {
             var result = _repository.GetProduct(productId);
@@ -76,6 +78,79 @@ namespace GalleryStore.Controllers
 
         }
 
+        [Authorize]
+        public IActionResult Buy(int productId)
+        {
+            IEnumerable<Order> orders = _repository.GetAllOrdersByUser(User.Identity.Name, true);
+            Product product = _repository.GetProduct(productId);
+
+            if (orders.Count() == 0)
+                return RedirectToAction("Shop");
+
+            Order order = orders.First();
+            OrderItem orderItem = null;
+
+            foreach (OrderItem currentOrderItem in order.Items)
+            {
+                if (currentOrderItem.Product.Id == product.Id) {
+                    orderItem = currentOrderItem;
+                    currentOrderItem.Quantity++;
+                }
+            }
+
+            if (orderItem == null)
+            {
+                orderItem = new OrderItem();
+                orderItem.Order = order;
+                orderItem.Product = product;
+                orderItem.Quantity = 1;
+                orderItem.UnitPrice = product.Price;
+                order.Items.Add(orderItem);
+            }
+
+            _repository.UpdateEntity(order);
+            if (_repository.SaveAll())
+            {
+                return RedirectToAction("Order", new { orderId = order.Id });
+            }
+
+            return RedirectToAction("Shop");
+        }
+
+        [Authorize]
+        public IActionResult DeleteProduct(int productId)
+        {
+            IEnumerable<Order> orders = _repository.GetAllOrdersByUser(User.Identity.Name, true);
+            Product product = _repository.GetProduct(productId);
+
+            if (orders.Count() == 0)
+                return RedirectToAction("Shop");
+
+            Order order = orders.First();
+            OrderItem orderItemToDelete = null;
+
+            foreach (OrderItem currentOrderItem in order.Items)
+            {
+                if (currentOrderItem.Product.Id == product.Id)
+                {
+                    orderItemToDelete = currentOrderItem;
+                    
+                }
+            }
+
+            if (orderItemToDelete != null)
+                order.Items.Remove(orderItemToDelete);
+
+            _repository.UpdateEntity(order);
+            if (_repository.SaveAll())
+            {
+                return RedirectToAction("Order", new { orderId = order.Id });
+            }
+
+            return RedirectToAction("Shop");
+        }
+
+        [Authorize]
         public IActionResult Orders(bool includeItems)
         {
             var results = _repository.GetAllOrdersByUser(User.Identity.Name, includeItems); ;
@@ -91,6 +166,7 @@ namespace GalleryStore.Controllers
             return View("Orders", results);
         }
 
+        [Authorize]
         public IActionResult Order(int orderId)
         {
             var result = _repository.GetOrder(orderId);
@@ -114,6 +190,7 @@ namespace GalleryStore.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public IActionResult EditProduct(int productId)
         {
             var product = _repository.GetProduct(productId);
@@ -124,6 +201,7 @@ namespace GalleryStore.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IActionResult EditProduct(ProductViewModel pvm)
         {
             if (ModelState.IsValid)
