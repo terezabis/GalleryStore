@@ -180,15 +180,6 @@ namespace GalleryStore.Controllers
             return View("Order");
         }
 
-        public IActionResult Artist(string artistId)
-        {
-            var result = _repository.GetProductsByArtistId(artistId);
-            
-            ViewBag.Order = result;
-
-            return View("Order");
-        }
-
         [HttpGet]
         [Authorize(Roles = "Admin")]
         public IActionResult EditProduct(int productId)
